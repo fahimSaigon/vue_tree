@@ -113,7 +113,7 @@ export default {
         .attr("x", (d) => (d.children ? -6 : 6))
         .attr("text-anchor", (d) => (d.children ? "end" : "start"))
         .text((d) => d.data.name + " (" + d.data.name.length + ")")
-         .on("click",function(d){
+        .on("click",function(d){
           console.log(d.target.childNodes[0].data)
           that.clktip = d.target.childNodes[0].data;
         })
