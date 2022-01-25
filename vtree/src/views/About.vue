@@ -1,8 +1,9 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1> {{clktip}} </h1>
 
         <div class="content"></div>
+
 
   </div>
 </template>
@@ -16,6 +17,7 @@ export default {
   data() {
     return {
       msg: {},
+      clktip: '--'
     };
   },
 
@@ -48,6 +50,8 @@ export default {
     },
 
     chart(tree, data, width) {
+
+      let that = this;
       const root = tree(data);
 
       let x0 = Infinity;
@@ -111,8 +115,7 @@ export default {
         .text((d) => d.data.name + " (" + d.data.name.length + ")")
          .on("click",function(d){
           console.log(d.target.childNodes[0].data)
-
-          alert(d.target.childNodes[0].data)
+          that.clktip = d.target.childNodes[0].data;
         })
         .clone(true)
         .lower()
