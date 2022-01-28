@@ -12,7 +12,7 @@ import dt from "../assets/flare-2.json";
 import * as d3 from "d3";
 var dts = {};
 export default {
-  name: "HelloWorld",
+  name: "About",
   data() {
     return {
       msg: {},
