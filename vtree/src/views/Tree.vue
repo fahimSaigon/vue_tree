@@ -60,6 +60,7 @@ export default {
                 bottom: '1%',
                 right: '20%',
                 symbolSize: 7,
+                
                 label: {
                   position: 'left',
                   verticalAlign: 'middle',
