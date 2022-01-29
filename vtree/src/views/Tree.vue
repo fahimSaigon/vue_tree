@@ -55,22 +55,23 @@ export default {
               {
                 type: 'tree',
                 data: [data],
-                top: '1%',
+                top: '2%',
                 left: '7%',
-                bottom: '1%',
+                bottom: '12%',
                 right: '20%',
-                symbolSize: 7,
+                symbolSize: 17,
                 
                 label: {
                   position: 'left',
                   verticalAlign: 'middle',
                   align: 'right',
-                  fontSize: 9
+                  fontSize: 19
                 },
                 leaves: {
                   label: {
                     position: 'right',
                     verticalAlign: 'middle',
+                    distance: 25,
                     align: 'left'
                   }
                 },
@@ -96,7 +97,9 @@ export default {
 </script>
 <style>
 #main{
-  width: 900px;
-  height: 2600px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  min-height:  2900px;
 }
 </style>
