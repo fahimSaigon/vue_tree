@@ -10,5 +10,5 @@ but this project is for the bank, no third party libray allowed, except those ar
 so, i use echarts of which already imported by them.
 
 
-i still at working until the last day of the year, it's a greay pity !!!
+i still at working until the last day of the year, it's a great pity !!!
 
