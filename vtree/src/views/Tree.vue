@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    
+    <h1> {{msg}} </h1>
     <div v-if="popshow"  id="popup"   v-bind:style="styleObject"> {{ msg }} </div>
     <div id="main"></div>
     
@@ -51,6 +51,10 @@ export default {
       }
     },
 
+    globalout(a){
+      console.log(a);
+      this.msg = null;
+    },
     ok(){
 
 
@@ -108,6 +112,9 @@ export default {
           }
 
           myChart.on("click", this.pass);
+          myChart.on("mouseover", this.pass);
+          myChart.on("globalout", this.globalout)
+
     }
   }
 }
