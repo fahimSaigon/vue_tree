@@ -11,7 +11,7 @@
 <script>
 import dt from "../assets/flare-2.json";
 import * as d3 from "d3";
-var dts = {};
+ 
 export default {
   name: "About",
   data() {
@@ -29,11 +29,9 @@ export default {
   },
   mounted() {
 
-    dts = dt;
-    console.log(dts);
-
+   
     var width = window.screen.width;
-    let data = dts;
+    let data = dt;
     var tree = (data) => {
       const root = d3.hierarchy(data);
       root.dx = 40;
@@ -99,8 +97,9 @@ export default {
         .selectAll("g")
         .data(root.descendants())
         .join("g")
-        .attr("transform", (d) => `translate(${d.y},${d.x})`);
-       
+        .attr("transform", (d) => `translate(${d.y},${d.x})`)
+        .attr("cursor", "pointer")
+        .attr("pointer-events", "all");
 
       node
         .append("circle")
