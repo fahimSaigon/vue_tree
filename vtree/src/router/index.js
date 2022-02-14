@@ -9,11 +9,18 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-  },  {
+  },  
+  {
     path: '/tree',
     name: 'Tree',
     component: () => import ('../views/Tree.vue')
   },
+  {
+    path: '/md5',
+    name: 'md5',
+    component: () => import ('../views/Md5.vue')
+  },
+   
    
   {
     path: '/about',

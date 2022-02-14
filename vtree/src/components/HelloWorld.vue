@@ -14,7 +14,7 @@
         label="姓名"
         width="180">
         <template slot-scope="scope">
-          {{ scope.row.name | namex(scope.row.name) }}
+          {{ scope.row.name | namex("i am filterx") }}
         </template>
       </el-table-column>
       <el-table-column
@@ -58,8 +58,8 @@ export default {
     }
   },
   filters: {
-    namex: function (v) {
-      console.log(v)
+    namex: function (v,z) {
+      console.log(v,z)
       if(v == "ak"){
         return "oooni"
       }else{
