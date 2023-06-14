@@ -43,6 +43,7 @@ export default {
           .then(function (data) {
             console.log( data );
             that.token = data.data.token
+            localStorage.setItem("token", data.data.token);
             that.getTag()
             that.getArticles()
           });
@@ -188,7 +189,7 @@ export default {
 
       gotoArticle(id) {
         console.log(id)
-        this.$router.push({ name: 'Article', query: { id: id } })
+        this.$router.push({ name: 'Article',  query: { id: id } })
         
       }
     },
