@@ -10,10 +10,10 @@
       </i>
     </div>
     <button @click="ok()">token</button>
-    <i v-for="z in articleslists" :key="z.id"  class="article">
+    <i v-for="z in articleslists" :key="z.id"  class="article"  @click="gotoArticle(z.id)">
     {{ z.title }}
     </i>
-    <button @click="articles()">articles</button>
+    <button @click="getArticles()">GET articles</button>
     <button @click="getTag()">get tag</button>
     <fieldset>
       <legend> 新增 tag </legend>

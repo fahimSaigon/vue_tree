@@ -44,10 +44,11 @@ export default {
             console.log( data );
             that.token = data.data.token
             that.getTag()
+            that.getArticles()
           });
       },
   
-      articles() {
+      getArticles() {
         this.articleslists = []
         let that = this
         fetch("/api/v1/articles?token="+this.token, {
@@ -185,5 +186,10 @@ export default {
          
       },
 
+      gotoArticle(id) {
+        console.log(id)
+        this.$router.push({ name: 'Article', query: { id: id } })
+        
+      }
     },
   };
