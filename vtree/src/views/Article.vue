@@ -1,9 +1,15 @@
 <template>
+ <div>
   <div v-if="data">
+   
     <h1>{{ data.title }}</h1>
     <div v-html="data.content"></div>
     <img :src="data.cover_image_url" alt=""/>
   </div>
+  <div v-esle>
+    {{ msg }}
+  </div>
+</div>
 </template>
 <script>
 export default {
@@ -11,6 +17,7 @@ export default {
   data() {
     return {
       data: null,
+      msg: ''
     };
   },
   created() {
@@ -36,6 +43,8 @@ export default {
           console.log(data);
           if (data && data.code === 200) {
             that.data = data.data;
+          } else {
+            that.msg = '该文章不存在'
           }
         });
     },
