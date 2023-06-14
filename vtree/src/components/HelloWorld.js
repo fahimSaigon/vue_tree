@@ -9,8 +9,22 @@ export default {
         State: '',
         msg: '',
         lists: [],
-        id: null
+        articleslists: [],
+        id: null,
+
+        tag_id: '',
+        title: '',
+        desc: '',
+        content: '',
+        created_by:  '',
+        cover_image_url: '',
+        state:  ''
+
+        
       }
+    },
+    created() {
+      this.ok()
     },
     methods: {
       ok() {
@@ -29,11 +43,13 @@ export default {
           .then(function (data) {
             console.log( data );
             that.token = data.data.token
+            that.getTag()
           });
       },
   
       articles() {
-        
+        this.articleslists = []
+        let that = this
         fetch("/api/v1/articles?token="+this.token, {
           method: "get"
         })
@@ -42,6 +58,9 @@ export default {
           })
           .then(function (data) {
             console.log( data );
+            if(data && data.code === 200) {
+              that.articleslists = data.data.lists
+            }
           });
       },
   
@@ -128,6 +147,43 @@ export default {
               this.State = i.state;
             }
         });
-      }
+      },
+
+ 
+      addArticle() {
+        
+        let fd = new FormData();
+        fd.append("tag_id", this.id);
+        fd.append("title", this.title);
+        fd.append("desc", this.desc);
+        fd.append("content", this.content);
+
+        fd.append("created_by", this.CreatedBy);
+        fd.append("cover_image_url", this.cover_image_url);
+        fd.append("state", this.State);
+      
+        let that = this
+  
+   
+        fetch("/api/v1/articles?token="+this.token, {
+          method: "POST",
+          body: fd
+        })
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (data) {
+          console.log( data );
+          if(data && data.code === 200 ) {
+            that.content = ''
+            that.desc = ''
+            that.cover_image_url = ''
+          } else {
+            that.msg = data.msg
+          }
+        });
+         
+      },
+
     },
   };
